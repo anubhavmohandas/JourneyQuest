@@ -1,0 +1,33 @@
+  <div class="container">
+    <div class="form-container">
+      <h2>R E G I S T E R</h2>
+      <form> <!--(ngSubmit)="onSubmit()"-->
+        
+        <label for="firstname">First Name:</label><br>
+        <input type="text"><br>
+    
+        <label for="lastname">Last Name:</label><br>
+        <input type="text" ><br>
+    
+        <label for="username">Username:</label><br>
+        <input type="text" ><br>
+    
+        <label for="mobile">Contact Number:</label><br>
+        <input type="number" ><br>
+    
+        <label for="email">Email:</label><br>
+        <input type="email" >
+    
+        <label for="password">Password:</label><br>
+        <input type="password" ><br>
+    
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password"><br>
+    
+        <button type="submit">Register</button>
+        <!-- button type="submit" [disabled]="registrationForm.invalid" -->
+
+      </form>
+    </div>
+  </div>
+  
