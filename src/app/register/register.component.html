@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-container">
     <h2>R E G I S T E R</h2>
-    <form (ngSubmit)="onSubmit(registerForm)">
+    <form (ngSubmit)="onSubmit(registerForm)">  
       <label for="firstname">First Name:</label>
       <input type="text" id="firstname" name="firstName" placeholder="Enter your first name" [(ngModel)]="registerForm.firstName">
 
@@ -21,7 +21,7 @@
       <input type="password" id="password" name="password" placeholder="Enter your password" [(ngModel)]="registerForm.password">
 
       <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" [(ngModel)]="registerForm.confirmPassword">
 
       <button type="submit">Register</button>
     </form>
