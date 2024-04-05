@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterComponent {
 
-  private apiUrl = 'http://localhost:8000'; 
+  private apiUrl = 'http://localhost:8000/register';
+
 
   registerForm = {
     userId: '',
