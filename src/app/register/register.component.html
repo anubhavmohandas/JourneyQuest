@@ -1,12 +1,9 @@
 <div class="container">
   <div class="form-container">
     <h2>R E G I S T E R</h2>
-    <form (ngSubmit)="onSubmit(registerForm)">  
-      <label for="firstname">First Name: <span class="required">*</span></label> 
-      <input type="text" id="firstname" name="firstName" placeholder="Enter your first name" [(ngModel)]="registerForm.firstName">
-
-      <label for="lastname">Last Name:</label>
-      <input type="text" id="lastname" name="lastName" placeholder="Enter your last name" [(ngModel)]="registerForm.lastName">
+    <form (ngSubmit)="onSubmit()">  
+      <label for="name">Name: <span class="required">*</span></label> 
+      <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="registerForm.name">
 
       <label for="username">Username: <span class="required">*</span></label>
       <input type="text" id="username" name="username" placeholder="Enter your username" [(ngModel)]="registerForm.username">

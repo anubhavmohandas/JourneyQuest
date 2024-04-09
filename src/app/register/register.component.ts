@@ -1,61 +1,66 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  imports: [FormsModule, HttpClientModule],
-  standalone: true
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 
-  private apiUrl = 'http://localhost:8000/register';
-
-
   registerForm = {
-    userId: '',
-    firstName: '',
-    lastName: '',
+    name: '',
     username: '',
     mobile: '',
     email: '',
     password: '',
     confirmPassword: '' 
   };
-  constructor(private http: HttpClient) { }
-  onSubmit(formData: any) {
-    // Validate password match
-    console.log(formData.password, formData.confirmPassword)
-    if (formData.password !== formData.confirmPassword) {
+
+  onSubmit() {
+    // Check if passwords match
+    if (this.registerForm.password !== this.registerForm.confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
 
-    this.http.post<any>(`${this.apiUrl}/register`, formData)
-      .subscribe(
-        (response: any) => {
-          console.log('Registration successful:', response);
-          // Handle successful registration (e.g., show success message)
-          // You can potentially reset the form here
-          this.registerForm = { // Reset form after submission
-            userId: '',
-            firstName: '',
-            lastName: '',
-            username: '',
-            mobile: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-          };
-        },
-        (error: any) => {
-          console.error('Registration error:', error);
-          // Handle errors (e.g., display error message to user)
-          // You can access the error status and message from error.status and error.error.message
-          alert('Registration failed: ' + error.error.message); // Example error message display
-        }
-      );
+    // Validate name field
+    if (!this.registerForm.name.trim()) {
+      alert('Please enter your name');
+      return;
+    }
+
+    // Validate username length
+    if (this.registerForm.username.trim().length < 5 || this.registerForm.username.trim().length > 20) {
+      alert('Username must be between 5 to 20 characters');
+      return;
+    }
+
+    // Validate phone number format
+    if (!(/^\d{10}$/.test(this.registerForm.mobile))) {
+      alert('Please enter a valid 10-digit phone number');
+      return;
+    }
+
+    // Validate email format
+    if (!(/\S+@\S+\.\S+/.test(this.registerForm.email))) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    // Validate password length and complexity
+    if (this.registerForm.password.length < 8 || this.registerForm.password.length > 32 ||
+        !/[a-z]/.test(this.registerForm.password) ||
+        !/[A-Z]/.test(this.registerForm.password) ||
+        !/\d/.test(this.registerForm.password) ||
+        !/[!@#$%^&*]/.test(this.registerForm.password)) {
+      alert('Password must be 8-32 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character');
+      return;
+    }
+
+    // Submit the form if all validations pass
+    console.log('Form submitted successfully:', this.registerForm);
   }
 }
