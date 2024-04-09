@@ -106,13 +106,13 @@ button[type="submit"]:focus {
 }
 
 /* Media queries for responsiveness */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 974px) {
   .form-container {
     width: 90%;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 750px) {
   .form-container {
     width: 95%;
     padding: 10%;
