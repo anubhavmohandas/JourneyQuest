@@ -21,29 +21,22 @@ export class RegisterComponent {
 
   allowedDomains: string[] = ['gmail.com', 'yahoo.com', 'outlook.com', 'gnu.ac.in', 'ganpatuniversity.ac.in'];
   onSubmit() {
-    // Check if passwords match
-    if (this.registerForm.password !== this.registerForm.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-  
     // Validate name length
     if (this.registerForm.name.trim().length > 32) {
       alert('Name must not exceed 32 characters');
       return;
     }
   
-    // Validate username length
-    if (this.registerForm.username.trim().length < 5 || this.registerForm.username.trim().length > 20) {
+    // Validate username length and format
+    if (this.registerForm.username.trim().length < 5 || this.registerForm.username.trim().length > 20 ||
+        !/^[a-zA-Z0-9_]+$/.test(this.registerForm.username.trim())) {
       alert('Username must be between 5 to 20 characters and contain only letters, numbers, and underscores');
-
       return;
-      
     }
   
     // Validate phone number format
     if (!(/^\d{10}$/.test(this.registerForm.mobile))) {
-      alert('Please enter a valid 10 digit  phone number (including country code).');
+      alert('Please enter a valid 10-digit phone number (including country code).');
       return;
     }
   
@@ -71,22 +64,27 @@ export class RegisterComponent {
       return;
     }
   
+    // Validate passwords match
+    if (this.registerForm.password !== this.registerForm.confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+  
     // Submit the form if all validations pass
     console.log('Form submitted successfully:', this.registerForm);
-    }  
+  
+    // Clear the form fields
+    // this.clearForm();
   }
-
-//   // Clear the form fields
-//   this.clearForm();
-// }
-
-// clearForm() {
-//   this.registerForm = {
-//     name: '',
-//     username: '',
-//     mobile: '',
-//     email: '',
-//     password: '',
-//     confirmPassword: '' 
-//   };
-// }
+  
+  // clearForm() {
+  //   this.registerForm = {
+  //     name: '',
+  //     username: '',
+  //     mobile: '',
+  //     email: '',
+  //     password: '',
+  //     confirmPassword: '' 
+  //   };
+  // }
+}
