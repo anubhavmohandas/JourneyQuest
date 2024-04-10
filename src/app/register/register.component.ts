@@ -75,3 +75,18 @@ export class RegisterComponent {
     console.log('Form submitted successfully:', this.registerForm);
     }  
   }
+
+//   // Clear the form fields
+//   this.clearForm();
+// }
+
+// clearForm() {
+//   this.registerForm = {
+//     name: '',
+//     username: '',
+//     mobile: '',
+//     email: '',
+//     password: '',
+//     confirmPassword: '' 
+//   };
+// }
