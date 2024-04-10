@@ -73,28 +73,5 @@ export class RegisterComponent {
   
     // Submit the form if all validations pass
     console.log('Form submitted successfully:', this.registerForm);
-
-    function validateGmail(email: string): boolean {
-      // Regular expression to match the @gmail.com format
-      const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    
-      // Test the email against the regex
-      return gmailRegex.test(email);
-    }
-    
-    // Example usage
-    const email1 = "user@gmail.com";
-     console.log(`${email1} is a valid gmail address: ${validateGmail(email1)}`); // Should log: true
-    
-    // const email2 = "user@example.com";
-    // console.log(`${email2} is a valid gmail address: ${validateGmail(email2)}`); // Should log: false
-    
-    // const email3 = "user.name+tag@gmail.com";
-    // console.log(`${email3} is a valid gmail address: ${validateGmail(email3)}`); // Should log: true
-    
-    // const email4 = "user@GMAIL.com";
-    // console.log(`${email4} is a valid gmail address: ${validateGmail(email4)}`); // Should log: true, if case sensitivity is not a concern.
-    
+    }  
   }
-  
-}
