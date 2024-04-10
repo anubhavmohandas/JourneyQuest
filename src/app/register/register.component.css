@@ -94,7 +94,7 @@ button[type="submit"]:focus {
   outline: none;
 }
 
-/* @keyframes fadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -103,10 +103,11 @@ button[type="submit"]:focus {
     opacity: 1;
     transform: translateY(0);
   }
-} */
+} 
 
 /* Media queries for responsiveness */
-/* @media only screen and (max-width: 974px) {
+
+@media only screen and (max-width: 974px) {
   .form-container {
     width: 90%;
   }
@@ -117,4 +118,4 @@ button[type="submit"]:focus {
     width: 95%;
     padding: 10%;
   }
-} */
+}
