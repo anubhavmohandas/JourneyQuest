@@ -21,6 +21,11 @@ export class RegisterComponent {
 
   allowedDomains: string[] = ['gmail.com', 'yahoo.com', 'outlook.com', 'gnu.ac.in', 'ganpatuniversity.ac.in'];
   onSubmit() {
+    // Validate name is not empty
+    if (!this.registerForm.name.trim()) {
+      alert('Please enter your name');
+      return;
+    }
     // Validate name length
     if (this.registerForm.name.trim().length > 32) {
       alert('Name must not exceed 32 characters');
@@ -36,7 +41,7 @@ export class RegisterComponent {
   
     // Validate phone number format
     if (!(/^\d{10}$/.test(this.registerForm.mobile))) {
-      alert('Please enter a valid 10-digit phone number (including country code).');
+      alert('Please enter a valid 10-digit phone number.');
       return;
     }
   
