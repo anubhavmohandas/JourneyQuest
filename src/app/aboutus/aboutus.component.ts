@@ -14,7 +14,7 @@ export class AboutusComponent {
       name: 'Anubhav Mohandas',
       role: 'Founder',
       bio: 'A passionate entrepreneur of the tech industry.',
-      photoUrl:"./assets/Images/male.jpg"
+      photoUrl:"./assets/Images/male2.jpeg"
     },
     {
       name: 'Saniya Shaikh',
@@ -24,8 +24,8 @@ export class AboutusComponent {
     }
   ];
 
-  mission = 'Our mission is to provide high-quality products and services to our customers, ensuring customer satisfaction and innovation in everything we do.';
+  mission = "Our mission is to empower individuals to dream, plan, and achieve their life's adventures through our intuitive and user-friendly digital bucket list and travel planning platform." ;
 
-  vision = 'Our vision is to become a leading company in the tech industry, recognized for our commitment to excellence, innovation, and customer satisfaction.';
+  vision = "Our vision is to be the go-to platform for individuals worldwide seeking to organize, prioritize, and realize their travel aspirations, creating memorable experiences that enrich their lives.";
 
 }
