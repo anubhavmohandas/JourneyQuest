@@ -12,17 +12,12 @@ h2, h3 {
   text-align: center;
 }
 
-.team-section, .mission-section, .vision-section {
-  margin-bottom: 30px;
-  display: inline-block;
-  
-}
-
 .team-members {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .team-member {
