@@ -1,0 +1,26 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .team-member {
+    margin-bottom: 20px;
+  }
+  
+  .member-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;  
+    background-color: #ccc;  
+    margin-bottom: 10px;
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
+  }
+  
