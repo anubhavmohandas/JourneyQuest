@@ -1,1 +1,36 @@
-<p>bucketlist works!</p>
+<div class="container">
+    <h2>Digital Bucket List</h2>
+  
+    <!-- Add Item Form -->
+    <form (ngSubmit)="addItem()" #itemForm="ngForm">
+      <label>Title:</label>
+      <input type="text" name="title" [(ngModel)]="newItem.title" required>
+  
+      <label>Description:</label>
+      <textarea name="description" [(ngModel)]="newItem.description" required></textarea>
+  
+      <label>Category:</label>
+      <select name="category" [(ngModel)]="newItem.category" required>
+        <option value="Travel">Travel</option>
+        <option value="Skills">Skills</option>
+        <option value="Books to Read">Books to Read</option>
+        <!-- Add more categories as needed -->
+      </select>
+  
+      <label>URL:</label>
+      <input type="text" name="url" [(ngModel)]="newItem.url">
+  
+      <button type="submit">Add Item</button>
+    </form>
+  
+    <!-- Bucket List Items -->
+    <div *ngFor="let item of bucketList" class="bucket-item">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <p>Category: {{ item.category }}</p>
+      <a *ngIf="item.url" [href]="item.url" target="_blank">More Info</a>
+      <input type="checkbox" [(ngModel)]="item.isCompleted">
+      <button (click)="deleteItem(item.id)">Delete</button>
+    </div>
+  </div>
+  
