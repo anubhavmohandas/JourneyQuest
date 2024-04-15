@@ -1,9 +1,10 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-aboutus',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './aboutus.component.html',
   styleUrl: './aboutus.component.css'
 })
@@ -12,12 +13,14 @@ export class AboutusComponent {
     {
       name: 'Anubhav Mohandas',
       role: 'Founder',
-      bio: 'A passionate entrepreneur of the tech industry.'
+      bio: 'A passionate entrepreneur of the tech industry.',
+      photoUrl:"./assets/Images/male.jpg"
     },
     {
       name: 'Saniya Shaikh',
       role: 'Co - Founder',
-      bio: 'A skilled developer who loves creating innovative solutions.'
+      bio: 'A skilled developer who loves creating innovative solutions.',
+      photoUrl:"./assets/Images/fem.jpg"
     }
   ];
 
@@ -25,5 +28,4 @@ export class AboutusComponent {
 
   vision = 'Our vision is to become a leading company in the tech industry, recognized for our commitment to excellence, innovation, and customer satisfaction.';
 
-  constructor() { }
 }

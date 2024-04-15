@@ -3,7 +3,7 @@
   
     <h3>Our Team</h3>
     <div *ngFor="let member of teamMembers" class="team-member">
-      <div class="member-photo"></div> 
+      <img [src]="member.photoUrl" alt="{{ member.name }}" class="member-photo">
       <h4>{{ member.name }}</h4>
       <p><strong>Role:</strong> {{ member.role }}</p>
       <p>{{ member.bio }}</p>
