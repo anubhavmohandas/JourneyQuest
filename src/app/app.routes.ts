@@ -4,6 +4,8 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactUsComponent } from './contactus/contactus.component';
+import { BucketListComponent } from './bucketlist/bucketlist.component';
+import { TravelComponent } from './travel/travel.component';
 
 export const routes: Routes = [
     {path:'', component: RegisterComponent},
@@ -11,6 +13,8 @@ export const routes: Routes = [
     {path:'login', component: LoginComponent},
     {path:'dashboard', component: DashboardComponent},
     {path:'aboutus', component: AboutusComponent}, 
-    {path:'contactus', component: ContactUsComponent}
+    {path:'contactus', component: ContactUsComponent},
+    {path:'bucketlist', component: BucketListComponent},
+    {path:'travel', component: TravelComponent}
 
 ];
