@@ -44,15 +44,18 @@
       <tr *ngFor="let item of bucketList">
         <td >  {{ item.title }}</td>
         <td>{{ item.category }}</td>
-        <!-- <td>
-          <mat-slide-toggle [(ngModel)]="item.isCompleted" thumbColor="purple"></mat-slide-toggle>
-        </td> -->
         <td>
           <!-- Slider for completed or not -->
-          <label class="switch">
-            <input type="checkbox" [(ngModel)]="item.isCompleted">
-            <span class="slider round"></span>
-          </label>
+          <div class="switch-container">
+            <!-- Slider for completed or not -->
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="item.isCompleted">
+              <span class="slider round"></span>
+            </label>
+            <!-- Trash icon -->
+            <!-- <label for="delete-{{ item.id }}" class="delete-label">Delete</label> -->
+            <span class="delete-label" (click)="deleteItem(item.id)" title="Delete">🗑️</span>
+          </div>
         </td>
       </tr>
     </tbody>

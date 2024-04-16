@@ -93,7 +93,7 @@ td {
 /* Slider styles */
 .switch {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   width: 60px;
   height: 34px;
 }
@@ -113,6 +113,7 @@ td {
   background-color: #fff;
   border-radius: 34px;
   transition: .4s;
+  cursor: pointer;
 }
 
 .slider:before {
@@ -142,4 +143,23 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+/* Delete */
+
+.switch-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Trash icon */
+.delete-label {
+  margin-left: 40px;
+  margin-top: -10px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.delete-label:hover {
+  color: red !important;
 }
