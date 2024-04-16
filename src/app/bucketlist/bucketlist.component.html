@@ -37,14 +37,22 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of bucketList">
         <td >  {{ item.title }}</td>
         <td>{{ item.category }}</td>
-        <td>
+        <!-- <td>
           <mat-slide-toggle [(ngModel)]="item.isCompleted" thumbColor="purple"></mat-slide-toggle>
+        </td> -->
+        <td>
+          <!-- Slider for completed or not -->
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="item.isCompleted">
+            <span class="slider round"></span>
+          </label>
         </td>
       </tr>
     </tbody>
