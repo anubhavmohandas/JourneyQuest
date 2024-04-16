@@ -1,1 +1,89 @@
-<p>travel works!</p>
+
+<div class="container">
+    <h2>Travel Planning</h2>
+  
+    <form (ngSubmit)="planTrip()" #tripForm="ngForm">
+      <!-- General Information -->
+      <h3>General Information</h3>
+      <label>Trip Name:</label>
+      <input type="text" name="tripName" [(ngModel)]="newTrip.tripName" placeholder="Enter trip name" required>
+  
+      <label>Trip Description:</label>
+      <textarea name="tripDescription" [(ngModel)]="newTrip.tripDescription" placeholder="Enter trip description"></textarea>
+  
+      <!-- Destination Details -->
+      <h3>Destination Details</h3>
+      <label>Destination:</label>
+      <input type="text" name="destination" [(ngModel)]="newTrip.destination" placeholder="Enter destination" required>
+  
+      <label>Country:</label>
+      <input type="text" name="country" [(ngModel)]="newTrip.country" placeholder="Enter country">
+  
+      <label>City:</label>
+      <input type="text" name="city" [(ngModel)]="newTrip.city" placeholder="Enter city">
+  
+      <label>Date Range:</label>
+      <input type="date" name="startDate" [(ngModel)]="newTrip.startDate" placeholder="Start Date"> -
+      <input type="date" name="endDate" [(ngModel)]="newTrip.endDate" placeholder="End Date">
+  
+      <!-- Travel Details -->
+      <h3>Travel Details</h3>
+      <label>Transportation:</label>
+      <select name="transportation" [(ngModel)]="newTrip.transportation">
+        <option value="Flight">Flight</option>
+        <option value="Train">Train</option>
+        <option value="Car">Car</option>
+      </select>
+  
+      <label>Departure City:</label>
+      <input type="text" name="departureCity" [(ngModel)]="newTrip.departureCity" placeholder="Enter departure city">
+  
+      <label>Departure Date:</label>
+      <input type="date" name="departureDate" [(ngModel)]="newTrip.departureDate">
+  
+      <label>Return Date:</label>
+      <input type="date" name="returnDate" [(ngModel)]="newTrip.returnDate">
+  
+      <!-- Accommodation -->
+      <h3>Accommodation</h3>
+      <label>Accommodation Type:</label>
+      <select name="accommodationType" [(ngModel)]="newTrip.accommodationType">
+        <option value="Hotel">Hotel</option>
+        <option value="Airbnb">Airbnb</option>
+        <option value="Hostel">Hostel</option>
+      </select>
+  
+      <label>Accommodation Name:</label>
+      <input type="text" name="accommodationName" [(ngModel)]="newTrip.accommodationName" placeholder="Enter accommodation name">
+  
+      <label>Booking Confirmation:</label>
+      <input type="text" name="bookingConfirmation" [(ngModel)]="newTrip.bookingConfirmation" placeholder="Enter booking confirmation URL">
+  
+      <!-- Activities & Attractions -->
+      <h3>Activities & Attractions</h3>
+      <label>Activities:</label>
+      <textarea name="activities" [(ngModel)]="newTrip.activities" placeholder="Enter planned activities"></textarea>
+  
+      <label>Attractions:</label>
+      <textarea name="attractions" [(ngModel)]="newTrip.attractions" placeholder="Enter attractions to visit"></textarea>
+  
+      <!-- Budget & Expenses -->
+      <h3>Budget & Expenses</h3>
+      <label>Total Budget:</label>
+      <input type="number" name="totalBudget" [(ngModel)]="newTrip.totalBudget" placeholder="Enter total budget">
+  
+      <label>Daily Budget:</label>
+      <input type="number" name="dailyBudget" [(ngModel)]="newTrip.dailyBudget" placeholder="Enter daily budget">
+  
+      <!-- Miscellaneous -->
+      <h3>Miscellaneous</h3>
+      <label>Notes:</label>
+      <textarea name="notes" [(ngModel)]="newTrip.notes" placeholder="Enter notes or reminders"></textarea>
+  
+      <label>Packing List:</label>
+      <textarea name="packingList" [(ngModel)]="newTrip.packingList" placeholder="Enter items to pack"></textarea>
+  
+      <button type="submit">Plan Trip</button>
+    </form>
+  </div>
+  
