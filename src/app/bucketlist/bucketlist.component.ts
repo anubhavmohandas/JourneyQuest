@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 export interface BucketListItem {
   id: number;
   title: string;
@@ -31,14 +32,14 @@ export class BucketListComponent {
   addItem() {
     // Generate a unique ID for the new item
     this.newItem.id = Date.now();
-    
+
     // Add the new item to the bucket list
     this.bucketList.push(this.newItem);
 
     // Clear the form
     this.newItem = {
       id: 0,
-      title: '',  
+      title: '',
       description: '',
       category: '',
       isCompleted: false
@@ -47,5 +48,9 @@ export class BucketListComponent {
 
   deleteItem(id: number) {
     this.bucketList = this.bucketList.filter(item => item.id !== id);
+  }
+
+  get filterActiveItems() {
+    return this.bucketList.filter(item => !item.isCompleted);
   }
 }
