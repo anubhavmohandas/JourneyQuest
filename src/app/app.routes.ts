@@ -8,7 +8,7 @@ import { BucketListComponent } from './bucketlist/bucketlist.component';
 import { TravelComponent } from './travel/travel.component';
 
 export const routes: Routes = [
-    {path:'', component: RegisterComponent},
+    // {path:'', component: RegisterComponent},
     {path:'register', component: RegisterComponent},
     {path:'login', component: LoginComponent},
     {path:'dashboard', component: DashboardComponent},

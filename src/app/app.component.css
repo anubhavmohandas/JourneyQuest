@@ -1,56 +1,78 @@
+/* Global Styles */
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: #fff;
-}
-
-.wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Wrapper */
+.wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Header */
+.header {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .header h1 {
   margin: 0;
+  font-size: 2em;
+}
+
+.header-buttons {
+  margin-top: 10px;
 }
 
 .header-buttons a {
   margin-left: 10px;
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: #555;
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .header-buttons a:hover {
-  background-color: #777;
+  background-color: #333;
+  color: #fff;
 }
 
+/* Main Content */
 .main-content {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-around;
+  margin-top: 30px;
   flex-grow: 1;
+  z-index: 1;
 }
 
 .container {
-  flex: 1;
-  background-color: #f9f9f9;
+  flex: 0 0 calc(50% - 20px);
+  margin: 10px;
   padding: 20px;
-  margin: 0 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .container h2 {
@@ -62,19 +84,29 @@ body {
   border-radius: 8px;
 }
 
+/* Footer */
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
   text-align: center;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-links a {
   margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+  background-color: #333;
+  color: #fff;
 }

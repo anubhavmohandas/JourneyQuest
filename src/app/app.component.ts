@@ -6,11 +6,12 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactUsComponent } from './contactus/contactus.component';
 import { BucketListComponent } from './bucketlist/bucketlist.component';
 import { TravelComponent } from './travel/travel.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterComponent, AboutusComponent, ContactUsComponent, BucketListComponent, TravelComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterComponent, AboutusComponent, ContactUsComponent, BucketListComponent, TravelComponent, HomepageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
