@@ -1,0 +1,112 @@
+<div class="wrapper">
+
+    <div class="header">
+      <h1>Journey Quest</h1>
+      <div class="header-buttons">
+        <a href="register">Register</a>
+        <a href="login">Login</a>
+      </div>
+    </div>
+    
+    <div class="hero">
+      <h1>Explore the world, one adventure at a time</h1>
+      <!-- <a href="explore" class="hero-button">Start Planning</a>  -->
+    </div>
+  
+  
+    <div class="main-content">
+  
+      <div class="popular-destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination">
+          <img src="../assets/Images/paris-france-gallery-2.jpg" alt="Destination 1" class="image-container"> 
+          <h3>Paris, France</h3>
+          <p>The City of Lights awaits!</p>
+        </div>
+        <div class="destination">
+          <img src="../assets/Images/Bali-Indonesia.jpeg" alt="Destination 2" class="image-container"> 
+          <h3>Bali, Indonesia</h3>
+          <p>Find paradise beaches and vibrant culture.</p>
+        </div>
+      </div>
+  
+      <div class="featured-content">
+        <h2>Featured Content</h2>
+        <div class="content-item">
+          <img src="../assets/Images/travel-tips.jpeg" alt="Travel Tips" class="image-container"> 
+          <h4>Travel Hacks for Budget Travelers</h4>
+          <p>Read our tips to save money on your next adventure.</p>
+          <div class="travel-hacks">
+            <div class="hack-button">Saving on Flights & Transportation</div>
+            <div class="hack-content">
+              <ul>
+                <li>Be flexible with travel dates and times.</li>
+                <li>Consider budget airlines and alternative airports.</li>
+                <li>Utilize public transportation, walking tours, or cycling.</li>
+                <li>Travel by train or bus for longer distances (can be scenic and comfortable, especially overnight).</li>
+              </ul>
+            </div>
+            
+            <div class="hack-button">Saving on Accommodation</div>
+            <div class="hack-content">
+              <ul>
+                <li>Hostels: Social interaction, dorm beds, or private rooms.</li>
+                <li>Couchsurfing or house sitting (requires research and caution).</li>
+                <li>Consider guesthouses, homestays, or rentals (apartments, shared spaces).</li>
+              </ul>
+            </div>
+            </div>
+            <!-- Implement JavaScript functionality to handle user interaction with the buttons. When a button is clicked, the corresponding hack content should expand or collapse using techniques like display: none and display: block. -->
+
+          <!-- <a href="travel-tips" class="content-link">Read More</a> </div> -->
+        <div class="content-item">
+          <img src="../assets/Images/travel-stories.jpeg" alt="Travel Stories" class="image-container"> 
+          <h4>Inspiring Travel Stories</h4>
+          <p>Be inspired by real traveler experiences.</p>
+          <section class="why-travel">
+            <h2>Why Travel Matters</h2>
+            <div class="reasons-grid">
+              <div class="reason-item">
+                <h3>Personal Growth</h3>
+                <p>Step outside your comfort zone, experience new cultures, and discover yourself through travel.</p>
+              </div>
+              <div class="reason-item">
+                <h3>Education & Inspiration</h3>
+                <p>Learn firsthand about history, geography, and different ways of life. Spark creativity and innovation through travel experiences.</p>
+              </div>
+              <div class="reason-item">
+                <h3>Health & Well-being</h3>
+                <p>Reduce stress, enjoy physical activity, and improve your mental and emotional well-being by traveling.</p>
+              </div>
+              <div class="reason-item">
+                <h3>Relationships</h3>
+                <p>Strengthen bonds with loved ones, meet new people, and build connections through travel.</p>
+              </div>
+            </div>
+          </section>          
+          <!-- <a href="travel-stories" class="content-link">Read More</a>  -->
+        </div>
+      </div>
+  
+      <div class="container">  <h2>Bucket List</h2>
+        <a href="bucketlist" target="_blank" rel="noreferrer noopener">
+          <img src="../assets/Images/buckelist.jpeg" alt="Bucket List" class="image-container">
+        </a>
+      </div>
+      <div class="container">
+        <h2>Travel Planner</h2>
+        <a href="travel" target="_blank" rel="noreferrer noopener">
+          <img src="../assets/Images/travel.jpeg" alt="Travel Planner" class="image-container">
+        </a>
+      </div>
+    </div>
+  
+    <div class="footer">
+      <div class="footer-links">
+        <a href="aboutus" target="_blank" rel="noreferrer noopener">About Us</a>
+        <a href="bucketlist" target="_blank" rel="noreferrer noopener">Bucket List</a>
+        <a href="travel" target="_blank" rel="noreferrer noopener">Travel Planner</a>
+        <a href="contactus" target="_blank" rel="noreferrer noopener">Contact Us</a>
+      </div>
+    </div>
+  </div>
