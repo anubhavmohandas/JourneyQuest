@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -41,7 +42,7 @@ a:hover {
 .hero h1 {
     margin: 0;
     font-size: 3em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); 
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .hero-button {
@@ -50,7 +51,7 @@ a:hover {
     background-color: #4a90e2; /* Blue color */
     border: none;
     color: #fff;
-    border-radius: 5px; /* Consistent rounded corners */
+    border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -99,8 +100,9 @@ a:hover {
 /* Main Content */
 .main-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start; /* Content sections at top */
+    flex-wrap: wrap;
     margin-top: 30px;
     flex-grow: 1;
 }
@@ -110,8 +112,7 @@ a:hover {
     margin: 10px;
     padding: 20px;
     text-align: center;
-    border-radius: 10px; /* Consistent rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
     background-color: #fff;
     transition: transform 0.3s ease;
 }
