@@ -1,18 +1,49 @@
 <!-- <app-login></app-login> -->
 <!-- <app-register></app-register> -->
-<!-- cc -->
-<!-- Hello -->
 <!-- <app-aboutus></app-aboutus> -->
 <!-- <app-contactus></app-contactus> -->
 <!-- <app-bucketlist></app-bucketlist> -->
 <!-- <app-travel></app-travel> -->
+<!-- <a href="dashboard/">Dashboard</a> -->
 
-<a href="register">Register</a>
+<!-- <a href="register">Register</a>
 <a href="login">Login</a>
 <a href="bucketlist">Bucket List</a>
 <a href="travel">Travel Planner</a>
 <a href="aboutus">About Us</a>
 <a href="contactus">Contact Us</a>
-<!-- <a href="dashboard/">Dashboard</a> -->
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<div class="wrapper">
+    <div class="header">
+      <h1>Journey Quest</h1>
+      <div class="header-buttons">
+        <a href="register">Register</a>
+        <a href="login">Login</a>
+      </div>
+    </div>
+  
+    <div class="main-content">
+      <div class="container">
+        <h2>Bucket List</h2>
+        <img src="../assets/Images/buckelist.jpeg" alt="Bucket List">
+        </div>
+      <div class="container">
+        <h2>Travel Planner</h2>
+        <img src="../assets/Images/travel.jpeg" alt="Travel Planner">
+        </div>
+    </div>
+  
+    <div class="footer">
+      <div class="footer-links">
+        <a>About Us</a>
+        <a>Contact Us</a>
+        <a href="bucketlist">Bucket List</a>
+        <a href="travel">Travel Planner</a>
+      </div>
+    </div>
+  
+    <router-outlet></router-outlet>
+  </div>
+  

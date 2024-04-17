@@ -11,8 +11,8 @@
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  width: 80%; /* Adjusted width for responsiveness */
-  max-width: 400px; /* Maximum width */
+  width: 80%; 
+  max-width: 400px; 
   animation: fadeIn 0.5s ease-in-out;
   transition: transform 0.3s ease;
 }
