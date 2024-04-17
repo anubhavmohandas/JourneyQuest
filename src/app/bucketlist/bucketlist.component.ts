@@ -2,7 +2,6 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 export interface BucketListItem {
   id: number;
   title: string;
@@ -17,7 +16,7 @@ export interface BucketListItem {
   standalone: true,
   imports: [FormsModule, NgFor, NgIf],
   templateUrl: './bucketlist.component.html',
-  styleUrl: './bucketlist.component.css'
+  styleUrls: ['./bucketlist.component.css']
 })
 export class BucketListComponent {
   bucketList: BucketListItem[] = [];
@@ -31,10 +30,11 @@ export class BucketListComponent {
 
   addItem() {
     // Validation
-    if (this.newItem.title.trim() === '' ) {
+    if (this.newItem.title.trim() === '') {
       alert('Please enter a title.');
       return;
     }
+
     // Generate a unique ID for the new item
     this.newItem.id = Date.now();
 
@@ -57,9 +57,7 @@ export class BucketListComponent {
   }
 
   sortBucketList() {
-    this.bucketList.sort((a, b) => {
-      return (a.isCompleted ? 1 : 0) - (b.isCompleted ? 1 : 0);
-    });
+    this.bucketList.sort((a, b) => (a.isCompleted ? 1 : 0) - (b.isCompleted ? 1 : 0));
   }
 
   get filterActiveItems() {
