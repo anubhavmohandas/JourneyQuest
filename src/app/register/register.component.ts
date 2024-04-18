@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -6,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
 
@@ -20,12 +22,19 @@ export class RegisterComponent {
   };
 
   allowedDomains: string[] = ['gmail.com', 'yahoo.com', 'outlook.com', 'gnu.ac.in', 'ganpatuniversity.ac.in'];
+
+  constructor(
+    private router: Router,
+    private apiService: ApiService
+  ) {}
+
   onSubmit() {
     // Validate name is not empty
     if (!this.registerForm.name.trim()) {
       alert('Please enter your name');
       return;
     }
+
     // Validate name length
     if (this.registerForm.name.trim().length > 32) {
       alert('Name must not exceed 32 characters');
@@ -74,22 +83,43 @@ export class RegisterComponent {
       alert('Passwords do not match!');
       return;
     }
-  
-    // Submit the form if all validations pass
-    console.log('Form submitted successfully:', this.registerForm);
-  
-    // Clear the form fields
-    // this.clearForm();
+
+    // Prepare user data
+    const userData = {
+      firstName: this.registerForm.name.split(' ')[0],  
+      lastName: this.registerForm.name.split(' ')[1] || '', 
+      username: this.registerForm.username,
+      mobile: this.registerForm.mobile,
+      email: this.registerForm.email,
+      password: this.registerForm.password
+    };
+
+    // Call the registerUser method from ApiService
+    this.apiService.registerUser(userData).subscribe(
+      (res) => {
+        console.log('User registration successful:', res);
+        alert('Registration successful! Please log in.');
+        this.clearForm();
+        
+        // Navigate to homepage after successful registration
+        // this.router.navigateByUrl('/');
+      },
+
+      (error) => {
+        console.log('Error during registration:', error);
+        alert('Registration failed. Please try again.');
+      }
+    );
   }
-  
-  // clearForm() {
-  //   this.registerForm = {
-  //     name: '',
-  //     username: '',
-  //     mobile: '',
-  //     email: '',
-  //     password: '',
-  //     confirmPassword: '' 
-  //   };
-  // }
+
+  clearForm() {
+    this.registerForm = {
+      name: '',
+      username: '',
+      mobile: '',
+      email: '',
+      password: '',
+      confirmPassword: '' 
+    };
+  }
 }
