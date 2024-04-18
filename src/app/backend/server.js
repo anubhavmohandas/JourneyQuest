@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 // Connecting with MongoDB
 mongoose
-  .connect('mongodb+srv://username:password@cluster0.h2is1pe.mongodb.net/JourneyQuest', {
+  .connect('mongodb+srv://anubhavmohandas:xOtcJw7rZERT7r0C@cluster0.h2is1pe.mongodb.net/JourneyQuest', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
