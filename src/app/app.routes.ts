@@ -8,6 +8,7 @@ import { BucketListComponent } from './bucketlist/bucketlist.component';
 import { TravelComponent } from './travel/travel.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routerOptions: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
@@ -24,10 +25,11 @@ export const routes: Routes = [
     {path:'dashboard', component: DashboardComponent},
     {path:'aboutus', component: AboutusComponent}, 
     {path:'contactus', component: ContactUsComponent},
+    {path:'homepage', component: HomepageComponent},
     // {path:'**', component:LoginComponent},
 ];
 
 
-NgModule({
-    imports:[CommonModule, RouterOutlet, RouterLink, RouterLinkActive]
-})
+// NgModule({
+//     imports:[CommonModule, RouterOutlet, RouterLink, RouterLinkActive]
+// })
