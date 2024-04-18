@@ -10,11 +10,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage/homepage.component';
 
-const routerOptions: ExtraOptions = {
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-    scrollOffset: [0, 64],
-};
+// const routerOptions: ExtraOptions = {
+//     scrollPositionRestoration: 'enabled',
+//     anchorScrolling: 'enabled',
+//     scrollOffset: [0, 64],
+// };
 
 export const routes: Routes = [
     // {path:'', component: RegisterComponent},
