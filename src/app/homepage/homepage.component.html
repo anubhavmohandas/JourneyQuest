@@ -12,52 +12,58 @@
         <h1>Explore the world, one adventure at a time</h1>
     </div>
 
-    <main class="main-content">
+    <section id = "first">
+        <main class="main-content">
 
-        <div class="popular-destinations">
-            <h2>Popular Destinations</h2>
-            <div class="mySlides">
-              <img src="../assets/Images/paris-france-gallery-2.jpg" alt="Destination 1" class="image-container">
-              <h3>Paris, France</h3>
-              <p>The City of Lights awaits!</p>
+            <div class="popular-destinations">
+                <h2>Popular Destinations</h2>
+                <div class="mySlides">
+                <img src="../assets/Images/paris-france-gallery-2.jpg" alt="Destination 1" class="image-container">
+                <h3>Paris, France</h3>
+                <p>The City of Lights awaits!</p>
+                </div>
+                <div class="mySlides">
+                <img src="../assets/Images/Bali-Indonesia.jpeg" alt="Destination 2" class="image-container">
+                <h3>Bali, Indonesia</h3>
+                <p>Find paradise beaches and vibrant culture.</p>
+                </div>
+                <!-- Navigation arrows -->
+                <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+                <a class="next" (click)="plusSlides(1)">&#10095;</a>
             </div>
-            <div class="mySlides">
-              <img src="../assets/Images/Bali-Indonesia.jpeg" alt="Destination 2" class="image-container">
-              <h3>Bali, Indonesia</h3>
-              <p>Find paradise beaches and vibrant culture.</p>
-            </div>
-            <!-- Navigation arrows -->
-            <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-            <a class="next" (click)="plusSlides(1)">&#10095;</a>
-        </div>
-        
+            
 
-        <!-- <section class="featured-content">
-            <h2>Featured Content</h2>
-        </section> -->
+            <!-- <section class="featured-content">
+                <h2>Featured Content</h2>
+            </section> -->
 
-        <div class="cta-section">
-            <div class="container">
-                <h2>Bucket List</h2>
-                <a href="bucketlist">
-                    <img src="../assets/Images/buckelist.jpeg" alt="Bucket List" class="image-container">
-                </a>
+            <div class="cta-section">
+                <div class="container">
+                    <h2>Bucket List</h2>
+                    <a href="bucketlist">
+                        <img src="../assets/Images/buckelist.jpeg" alt="Bucket List" class="image-container">
+                    </a>
+                </div>
+                <div class="container">
+                    <h2>Travel Planner</h2>
+                    <a href="travel">
+                        <img src="../assets/Images/travel.jpeg" alt="Travel Planner" class="image-container">
+                    </a>
+                </div>
             </div>
-            <div class="container">
-                <h2>Travel Planner</h2>
-                <a href="travel">
-                    <img src="../assets/Images/travel.jpeg" alt="Travel Planner" class="image-container">
-                </a>
-            </div>
-        </div>
 
-    </main>
+        </main>
+    </section>
 
     <footer class="footer">
         <div class="footer-links">
+            <a href="">Home</a>
             <a href="aboutus" target="_blank" rel="noreferrer noopener">About Us</a>
-            <a href="bucketlist" target="_blank" rel="noreferrer noopener">Bucket List</a>
-            <a href="travel" target="_blank" rel="noreferrer noopener">Travel Planner</a>
+            <a href="bucketlist">Bucket List</a>
+            <!-- <a routerLink="/bucketlist" routerLinkActive="active" ariaCurrentWhenActive="page">Bucket List</a> -->
+            <!-- <a [routerLink]="['buckelist', params]" fragment="bucket">Bucket List</a> -->
+            <!--target="_blank" rel="noreferrer noopener"-->
+            <a href="travel" >Travel Planner</a> <!--target="_blank" rel="noreferrer noopener"-->
             <a href="contactus" target="_blank" rel="noreferrer noopener">Contact Us</a>
         </div>
     </footer>
