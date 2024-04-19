@@ -3,8 +3,8 @@ const userRoute = express.Router();
 // User model
 let User = require('./models/User'); 
 
-// Register a new user
-userRoute.route('/register').post((req, res, next) => {
+// Create a new user
+userRoute.route('/create').post((req, res, next) => {
   User.create(req.body)
     .then((result) => {
       res.status(201).json(result);
