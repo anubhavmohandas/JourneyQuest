@@ -22,6 +22,9 @@ const userRoute = require('./route'); // Routing to route.js
 
 const app = express();
 
+// Import createError
+// const createError = require('http-errors');
+
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -38,6 +38,7 @@ export class ApiService {
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
+    console.log('Error:', error); 
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
