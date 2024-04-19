@@ -14,7 +14,7 @@ export class ApiService {
 
   // Register a new user
   registerUser(data: any): Observable<any> {
-    let url = `${this.baseUri}/register`;
+    let url = `${this.baseUri}/create`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
