@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  // imports: [Router],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
-})
+})  
 export class LoginComponent {
 
   loginForm = {
@@ -22,6 +23,7 @@ export class LoginComponent {
   ) {}
 
   onSubmit() {
+    console.log("working")
     // Validate username and password
     if (!this.loginForm.username.trim() || !this.loginForm.password.trim()) {
       alert('Please enter both username and password');

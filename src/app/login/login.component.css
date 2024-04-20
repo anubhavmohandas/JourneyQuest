@@ -61,7 +61,7 @@ input[type="password"]:focus {
   border-color: #4CAF50;
 }
 
-input[type="button"] {
+input[type="submit"] {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -72,8 +72,12 @@ input[type="button"] {
   transition: background-color 0.3s ease;
 }
 
-input[type="button"]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+input[type="submit"]:focus {
+  outline:none;
 }
 
 @keyframes fadeIn {

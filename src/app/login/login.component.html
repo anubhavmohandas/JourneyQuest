@@ -1,12 +1,12 @@
 <div id="container">
   <div class="form-container">
     <h2>L O G I N</h2>
-    <form >
+    <form (ngSubmit)="onSubmit()">
       <label for="username">Username <span class="required-asterisk">*</span></label>
-      <input type="text" name="username" id="name">
+      <input type="text" name="username" id="username" [(ngModel)]="loginForm.username" required>
       <label for="password">Password <span class="required-asterisk">*</span> </label>
-      <input type="password" name="password" id="pwd">
-      <input type="button" value="Login">
+      <input type="password" name="password" id="password" [(ngModel)]="loginForm.password" required>
+      <input type="submit" value="Login">
     </form>
     <!-- <p>Don't have an account? <a [routerLink]="['/register']">Create a new account</a></p> -->
   </div>

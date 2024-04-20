@@ -27,8 +27,11 @@ userRoute.route('/login').post((req, res) => {
   const { username, password } = req.body;
   User.findOne({ username })
     .then((user) => {
-      if (!user || user.password !== password) { 
-        return res.status(400).json({ message: 'Invalid credentials' });
+      if (!user) { 
+        return res.status(400).json({ message: 'User not found. Please create an account.' });
+      }
+      if (user.password !== password) {
+        return res.status(400).json({ message: 'Invalid password' });
       }
       res.json({ message: 'Login successful', user });
     })
