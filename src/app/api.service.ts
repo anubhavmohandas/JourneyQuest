@@ -10,6 +10,7 @@ import { BucketListItem } from './bucketlist/bucketlist.component';
 export class ApiService {
   baseUri: string = 'http://localhost:4000/api/users'; 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  currentUser: any;
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +23,15 @@ export class ApiService {
   // Login user
   loginUser(data: any): Observable<any> {
     let url = `${this.baseUri}/login`;
-    return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+    return this.http.post(url, data).pipe(
+      map((response: any) => {
+        if (response && response.user) {
+          return response.user;  // Extracting the user object from the response
+        }
+        throw new Error('Invalid response format');
+      }),
+      catchError(this.errorMgmt)
+    );
   }
 
   // Update user

@@ -116,7 +116,11 @@ app.post('/api/bucketlist', async (req, res) => {
     const { userId, bucketList } = req.body;
     
     await BucketListItem.deleteMany({ userId });
-    await BucketListItem.insertMany(bucketList.map(item => ({ ...item, userId })));
+    if (bucketList.length === 1) {
+      await BucketListItem.create({ ...bucketList[0], userId });
+    } else {
+      await BucketListItem.insertMany(bucketList.map(item => ({ ...item, userId })));
+    }
 
     res.status(200).json({ message: 'Bucket list updated successfully' });
   } catch (error) {
@@ -124,6 +128,7 @@ app.post('/api/bucketlist', async (req, res) => {
     res.status(500).json({ message: 'Failed to update bucket list' });
   }
 });
+
 
 // Port Setup
 const port = process.env.PORT || 4000;
