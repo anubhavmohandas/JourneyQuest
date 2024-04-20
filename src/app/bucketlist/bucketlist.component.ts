@@ -1,6 +1,7 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf } from '@angular/common';
 
 export interface BucketListItem {
   id: number;
@@ -27,6 +28,8 @@ export class BucketListComponent {
     category: '',
     isCompleted: false
   };
+
+  constructor(private apiService: ApiService) {}
 
   addItem() {
     // Validation
@@ -62,5 +65,16 @@ export class BucketListComponent {
 
   get filterActiveItems() {
     return this.bucketList.filter(item => !item.isCompleted);
+  }
+
+  updateBucketList(userId: string) {
+    this.apiService.updateBucketList(userId, this.bucketList).subscribe(
+      (res) => {
+        console.log('Bucket list updated successfully:', res);
+      },
+      (error) => {
+        console.error('Error updating bucket list:', error);
+      }
+    );
   }
 }

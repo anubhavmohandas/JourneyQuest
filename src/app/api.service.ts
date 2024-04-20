@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { BucketListItem } from './bucketlist/bucketlist.component';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,13 @@ export class ApiService {
     let url = `${this.baseUri}/delete/${id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(catchError(this.errorMgmt));
   }
+
+  // api.service.ts
+
+  updateBucketList(userId: string, bucketList: BucketListItem[]): Observable<any> {
+  const url = `${this.baseUri}/bucketlist`;
+  return this.http.post(url, { userId, bucketList });
+}
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
