@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormsModule } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -102,7 +103,7 @@ export class RegisterComponent {
         this.clearForm();
         
         // Navigate to homepage after successful registration
-        // this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/login');
       },
 
       (error) => {

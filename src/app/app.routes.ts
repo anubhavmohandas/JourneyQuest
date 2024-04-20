@@ -18,8 +18,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 export const routes: Routes = [
     // {path:'', component: RegisterComponent},
-    {path:'register', component: RegisterComponent},
     {path:'login', component: LoginComponent},
+    {path:'register' ,component: RegisterComponent},
     {path:'bucketlist', component: BucketListComponent},
     {path:'travel', component: TravelComponent},
     {path:'dashboard', component: DashboardComponent},
