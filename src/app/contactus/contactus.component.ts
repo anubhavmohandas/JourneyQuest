@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-contactus',
@@ -15,12 +16,34 @@ export class ContactUsComponent {
     subject: '',
     content: ''
   };
-
+  constructor(private apiService: ApiService) {} 
+  // onSubmit() {
+  //   const formData = {
+  //     name: this.message.name,
+  //     email: this.message.email,
+  //     subject: this.message.subject,
+  //     content: this.message.content,
+  //   };
   onSubmit() {
-   alert('Form submitted:');
+    alert('Form submitted:');
+    console.log(this.message);
+ 
+    this.clearForm();
+   }
 
-   this.clearForm();
-  }
+  //   // Call the insertContact method from ApiService
+  //   this.apiService.insertContact(formData).subscribe(
+  //     (res) => {
+  //       console.log('Contact message sent successfully:', res);
+  //       alert('Your message has been sent successfully!');
+  //       this.clearForm();
+  //     },
+  //     (error) => {
+  //       console.log('Error sending contact message:', error);
+  //       alert('An error occurred while sending your message. Please try again.');
+  //     }
+  //   );
+  // }
 
   clearForm() {
     this.message = {

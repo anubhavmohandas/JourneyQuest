@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { BucketListItem } from './bucketlist/bucketlist.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+  // baseUri: string = 'http://localhost:4000/api/users'; 
   baseUri: string = 'http://localhost:4000/api/users'; 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser: any;
@@ -67,6 +67,13 @@ setUser(username:string)
 //   const url = `${this.baseUri}/bucketlist`;
 //   return this.http.post(url, { userId, bucketList });
 // }
+
+  // Contact Us
+  insertContact(data: any): Observable<any> {
+    // let url = 'http://localhost:4000/api/contact/createcontact';
+    let url = `${this.baseUri}/createcontact`;
+    return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+  }
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

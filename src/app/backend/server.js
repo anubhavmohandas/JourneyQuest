@@ -81,6 +81,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const createError = require('http-errors');
+
 
 // Connecting with MongoDB
 mongoose
@@ -110,11 +112,13 @@ app.use('/', express.static(path.join(__dirname, '/JourneyQuest')));
 app.use('/api/users', userRoute);
 
 // // New API endpoint for bucket list
-// app.post('/api/createBucket', async (req, res) => {
+// app.post('/api/createBucket', async (req, res) => {});
+// const bucketRoute = require('./Bucketroute');
+// app.use('/api/buckets', bucketRoute);
 
-  
-// });
-app.use('/api/buckets', bucketRoute);
+// Contact US
+const contactRoute = require('./contactRoute');
+app.use('/api/contacts', contactRoute);
 
 // Port Setup
 const port = process.env.PORT || 4000;
