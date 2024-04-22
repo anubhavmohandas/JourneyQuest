@@ -1,4 +1,4 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -23,15 +23,14 @@ export interface Trip {
   dailyBudget: string;
   notes: string;
   packingList: string;
-  status: string; 
-  isCompleted: boolean;
+  status: string;
 }
 
 
 @Component({
   selector: 'app-travel',
   standalone: true,
-  imports: [FormsModule, CommonModule, NgFor],
+  imports: [FormsModule, NgIf, NgFor, CommonModule],
   templateUrl: './travel.component.html',
   styleUrl: './travel.component.css'
 })
@@ -57,29 +56,26 @@ export class TravelComponent {
     dailyBudget: '',
     notes: '',
     packingList: '',
-    status: '',
-    isCompleted: false
+    status: 'Pending'
   };
 
   trips: Trip[] = [];
   selectedTrip: Trip | null = null;
 
   planTrip() {
-    // Validation
-    if (this.newTrip.tripName.trim() === '') {
-      alert('Please enter a trip name.');
-      return;
-    }
+    // Logic to handle trip planning
+    console.log('Planning trip:', this.newTrip);
 
-    // Add the isCompleted property to the newTrip object
-    this.newTrip.isCompleted = false;
-
-    // Add the new trip to the trips list
+    // Update status and add to trips list
+    this.newTrip.status = 'Planned';
     this.trips.push(this.newTrip);
-    // this.sortTrips();
 
     // Clear the form after submission
     this.clearForm();
+  }
+
+  showTripDetails(trip: Trip) {
+    this.selectedTrip = trip;
   }
 
   clearForm() {
@@ -104,17 +100,7 @@ export class TravelComponent {
       dailyBudget: '',
       notes: '',
       packingList: '',
-      status: '',
-      isCompleted: false
+      status: 'Pending'
     };
-  }
-
-  showTripDetails(trip: Trip) {
-    this.selectedTrip = trip;
-    this.newTrip = trip;
-  }
-
-  deleteTrip(index: number) {
-    this.trips.splice(index, 1);
   }
 }
