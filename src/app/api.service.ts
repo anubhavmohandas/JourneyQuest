@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root',
 })
 export class ApiService {
-  // baseUri: string = 'http://localhost:4000/api/users'; 
+  // baseUri: string = 'http://localhost:4000/api'; 
   baseUri: string = 'http://localhost:4000/api/users'; 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser: any;
