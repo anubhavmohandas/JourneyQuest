@@ -2,7 +2,6 @@ const express = require('express');
 const userRoute = express.Router();
 // User model
 let User = require('./models/User'); 
-const BucketListItem = require('./models/BucketListItem');
 
 
 // Create a new user
@@ -11,7 +10,7 @@ userRoute.route('/create').post((req, res, next) => {
   const userId = `user_${Date.now()}`;
 
   // Create a new user with the generated userId
-  User.create({ ...req.body, userId })
+  User.create({...req.body, userId })
     .then((result) => {
       res.status(201).json(result);
       console.log(result);

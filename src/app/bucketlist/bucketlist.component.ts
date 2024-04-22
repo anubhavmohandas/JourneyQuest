@@ -67,14 +67,17 @@ export class BucketListComponent {
     return this.bucketList.filter(item => !item.isCompleted);
   }
 
-  updateBucketList(userId: string) {
-    this.apiService.updateBucketList(userId, this.bucketList).subscribe(
-      (res) => {
-        console.log('Bucket list updated successfully:', res);
-      },
-      (error) => {
-        console.error('Error updating bucket list:', error);
-      }
-    );
+  insertBucketList(userId: string){
+    this.apiService.insertBucket(this.bucketList[this.bucketList.length-1])
   }
-}
+  // updateBucketList(userId: string) {
+  //   this.apiService.updateBucketList(userId, this.bucketList).subscribe(
+  //     (res) => {
+  //       console.log('Bucket list updated successfully:', res);
+  //     },
+  //     (error) => {
+  //       console.error('Error updating bucket list:', error);
+  //     }
+    // );
+  }
+// }

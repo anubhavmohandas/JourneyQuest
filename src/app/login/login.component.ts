@@ -40,6 +40,7 @@ export class LoginComponent {
       (res) => {
         console.log('Login successful:', res);
         alert('Login successful!');
+        this.apiService.setUser(userData.username)
         // Navigate to homepage or dashboard after successful login
         this.router.navigateByUrl('/');
       },

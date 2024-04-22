@@ -26,13 +26,18 @@ export class ApiService {
     return this.http.post(url, data).pipe(
       map((response: any) => {
         if (response && response.user) {
-          return response.user;  // Extracting the user object from the response
+          return response.user;  
+          this.currentUser = response.user;
         }
         throw new Error('Invalid response format');
       }),
       catchError(this.errorMgmt)
     );
   }
+setUser(username:string)
+{
+  this.currentUser=username
+}
 
   // Update user
   updateUser(id: any, data: any): Observable<any> {
@@ -47,11 +52,21 @@ export class ApiService {
   }
 
   // api.service.ts
-
-  updateBucketList(userId: string, bucketList: BucketListItem[]): Observable<any> {
-  const url = `${this.baseUri}/bucketlist`;
-  return this.http.post(url, { userId, bucketList });
-}
+// createBucket()
+  insertBucket(data:any): Observable<any> {
+    let url = `${this.baseUri}/createBucket/${data}`;
+    return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+  }
+  
+  //
+  deleteBucket(id: any): Observable<any> {
+    let url = `${this.baseUri}/deletebucket/${id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(catchError(this.errorMgmt));
+  }
+//   updateBucketList(userId: string, bucketList: BucketListItem[]): Observable<any> {
+//   const url = `${this.baseUri}/bucketlist`;
+//   return this.http.post(url, { userId, bucketList });
+// }
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

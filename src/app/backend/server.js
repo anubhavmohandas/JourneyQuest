@@ -81,7 +81,6 @@ const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const BucketListItem = require('./models/BucketListItem'); 
 
 // Connecting with MongoDB
 mongoose
@@ -110,25 +109,12 @@ app.use('/', express.static(path.join(__dirname, '/JourneyQuest')));
 
 app.use('/api/users', userRoute);
 
-// New API endpoint for bucket list
-app.post('/api/bucketlist', async (req, res) => {
-  try {
-    const { userId, bucketList } = req.body;
-    
-    await BucketListItem.deleteMany({ userId });
-    if (bucketList.length === 1) {
-      await BucketListItem.create({ ...bucketList[0], userId });
-    } else {
-      await BucketListItem.insertMany(bucketList.map(item => ({ ...item, userId })));
-    }
+// // New API endpoint for bucket list
+// app.post('/api/createBucket', async (req, res) => {
 
-    res.status(200).json({ message: 'Bucket list updated successfully' });
-  } catch (error) {
-    console.error('Error updating bucket list:', error);
-    res.status(500).json({ message: 'Failed to update bucket list' });
-  }
-});
-
+  
+// });
+app.use('/api/buckets', bucketRoute);
 
 // Port Setup
 const port = process.env.PORT || 4000;
