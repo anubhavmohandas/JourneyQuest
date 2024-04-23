@@ -81,7 +81,8 @@ th {
   background-color: #eee;
   text-align: left;
   font-weight: bold;
-  width: 40%;
+  width: 25%;
+  white-space: nowrap;
 }
 
 
@@ -89,7 +90,9 @@ td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
-  width: 40%;
+  width: 25%;
+  white-space: normal; /*  line breaks */
+  word-wrap: break-word; /* Break words */
 }
 
 /* Slider styles */

@@ -37,14 +37,18 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Description</th>
         <th>Category</th>
+        <th>URL</th>
         <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of bucketList">
         <td >  {{ item.title }}</td>
-        <td>{{ item.category }}</td>
+        <td >  {{ item.description }}</td>
+        <td >  {{ item.category }}</td>
+        <td>{{ item.url }}</td>
         <td>
           <!-- Slider for completed or not -->
           <div class="switch-container">

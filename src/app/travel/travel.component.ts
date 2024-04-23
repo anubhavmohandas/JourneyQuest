@@ -110,7 +110,7 @@ export class TravelComponent {
   }
 
   showTripDetails(trip: Trip) {
-    this.selectedTrip = trip;
+    // this.selectedTrip = trip;
     this.newTrip = trip;
   }
 
