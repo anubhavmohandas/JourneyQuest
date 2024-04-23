@@ -17,6 +17,13 @@ export class ContactUsComponent {
     content: ''
   };
   constructor(private apiService: ApiService) {} 
+  onSubmit() {
+    alert('Form submitted:');
+    console.log(this.message);
+ 
+    this.clearForm();
+   }
+
   // onSubmit() {
   //   const formData = {
   //     name: this.message.name,
@@ -24,12 +31,6 @@ export class ContactUsComponent {
   //     subject: this.message.subject,
   //     content: this.message.content,
   //   };
-  onSubmit() {
-    alert('Form submitted:');
-    console.log(this.message);
- 
-    this.clearForm();
-   }
 
   //   // Call the insertContact method from ApiService
   //   this.apiService.insertContact(formData).subscribe(

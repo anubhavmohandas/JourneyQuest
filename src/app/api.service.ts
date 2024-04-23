@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 export class ApiService {
   // baseUri: string = 'http://localhost:4000/api'; 
-  baseUri: string = 'http://localhost:4000/api/users'; 
+  baseUri: string = 'http://localhost:4000/api'; 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser: any;
 
@@ -16,13 +16,13 @@ export class ApiService {
 
   // Register a new user
   registerUser(data: any): Observable<any> {
-    let url = `${this.baseUri}/create`;
+    let url = `${this.baseUri}/users/create`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
   // Login user
   loginUser(data: any): Observable<any> {
-    let url = `${this.baseUri}/login`;
+    let url = `${this.baseUri}/users/login`;
     return this.http.post(url, data).pipe(
       map((response: any) => {
         if (response && response.user) {
@@ -51,7 +51,6 @@ setUser(username:string)
     return this.http.delete(url, { headers: this.headers }).pipe(catchError(this.errorMgmt));
   }
 
-  // api.service.ts
 // createBucket()
   insertBucket(data:any): Observable<any> {
     let url = `${this.baseUri}/createBucket/${data}`;

@@ -98,7 +98,7 @@ mongoose
   });
 
 // Importing routes
-const userRoute = require('./route'); // Routing to route.js
+const userRoute = require('./route'); 
 
 const app = express();
 

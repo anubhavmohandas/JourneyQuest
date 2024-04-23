@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-// Define the schema for ContactMessage
-let contactMessageSchema = new Schema({
+// schema for ContactMessage
+let contactMessageSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
