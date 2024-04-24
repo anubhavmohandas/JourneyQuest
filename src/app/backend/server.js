@@ -118,7 +118,7 @@ app.use('/api/users', userRoute);
 
 // Contact US
 const contactRoute = require('./contactRoute');
-app.use('/api/contacts', contactRoute);
+app.use('/api/createcontact', contactRoute);
 
 // Port Setup
 const port = process.env.PORT || 4000;
