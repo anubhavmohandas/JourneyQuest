@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 
 export interface BucketListItem {
-  id: number;
+  // id: number;
+  username: string;
   title: string;
   description: string;
   category: string;
@@ -22,7 +23,8 @@ export interface BucketListItem {
 export class BucketListComponent {
   bucketList: BucketListItem[] = [];
   newItem: BucketListItem = {
-    id: 0,
+    // id: 0,
+    username:'',
     title: '',
     description: '',
     category: '',
@@ -38,8 +40,19 @@ export class BucketListComponent {
       return;
     }
 
-    // Generate a unique ID for the new item
-    this.newItem.id = Date.now();
+      const item: BucketListItem ={
+        username: this.apiService.currentUser,
+        title:this.newItem.title,
+        description:this.newItem.description,
+        category:this.newItem.category,
+        url:this.newItem.url,
+        isCompleted:this.newItem.isCompleted
+      }
+
+      this.apiService.insertBucket(item).subscribe({
+        complete:() => console.log('New Bucket Added Successfully'),
+        error: (e) => { console.log('Problem'); },
+      })
 
     // Add the new item to the bucket list
     this.bucketList.push(this.newItem);
@@ -47,7 +60,8 @@ export class BucketListComponent {
 
     // Clear the form
     this.newItem = {
-      id: 0,
+      // id: 0,
+      username:'',
       title: '',
       description: '',
       category: '',
@@ -55,9 +69,9 @@ export class BucketListComponent {
     };
   }
 
-  deleteItem(id: number) {
-    this.bucketList = this.bucketList.filter(item => item.id !== id);
-  }
+  // deleteItem(id: number) {
+  //   this.bucketList = this.bucketList.filter(item => item.id !== id);
+  // }
 
   sortBucketList() {
     this.bucketList.sort((a, b) => (a.isCompleted ? 1 : 0) - (b.isCompleted ? 1 : 0));

@@ -109,7 +109,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '/JourneyQuest')));
 app.use('/', express.static(path.join(__dirname, '/JourneyQuest')));
 
-app.use('/api/users', userRoute);
+app.use('/api', userRoute);
 
 // // New API endpoint for bucket list
 // app.post('/api/createBucket', async (req, res) => {});
@@ -117,8 +117,8 @@ app.use('/api/users', userRoute);
 // app.use('/api/buckets', bucketRoute);
 
 // Contact US
-const contactRoute = require('./contactRoute');
-app.use('/api/createcontact', contactRoute);
+// const contactRoute = require('./contactRoute');
+// app.use('/api/createcontact', contactRoute);
 
 // Port Setup
 const port = process.env.PORT || 4000;

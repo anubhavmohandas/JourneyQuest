@@ -1,11 +1,13 @@
 const express = require('express');
-const userRoute = express.Router();
+const Route = express.Router();
 // User model
 let User = require('./models/User'); 
+let Bucket = require('./models/BucketListItem');
+let Contact = require('./models/ContactMessage');
 
 
 // Create a new user
-userRoute.route('/create').post((req, res, next) => {
+Route.route('/create').post((req, res, next) => {
   // Generate a unique userId
   const userId = `user_${Date.now()}`;
 
@@ -22,7 +24,7 @@ userRoute.route('/create').post((req, res, next) => {
 });
 
 // Login user
-userRoute.route('/login').post((req, res) => {
+Route.route('/login').post((req, res) => {
   const { username, password } = req.body;
   User.findOne({ username })
     .then((user) => {
@@ -41,7 +43,7 @@ userRoute.route('/login').post((req, res) => {
 });
 
 // Update user
-userRoute.route('/update/:id').put((req, res) => {
+Route.route('/update/:id').put((req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((user) => {
       if (!user) {
@@ -56,7 +58,7 @@ userRoute.route('/update/:id').put((req, res) => {
 });
 
 // Delete user
-userRoute.route('/delete/:id').delete((req, res) => {
+Route.route('/delete/:id').delete((req, res) => {
   User.findByIdAndDelete(req.params.id)
     .then((user) => {
       if (!user) {
@@ -70,4 +72,48 @@ userRoute.route('/delete/:id').delete((req, res) => {
     });
 });
 
-module.exports = userRoute;
+// Bucket List
+Route.route('/createBucket').post((req, res, next) => {
+
+  // Create a new user with the generated userId
+  Bucket.create(req.body)
+    .then((result) => {
+      res.status(201).json(result);
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({ message: err.message });
+    });
+});
+
+// 
+Route.route('/deletebucket/:id').delete((req, res) => {
+    Bucket.findByIdAndDelete(req.params.id)
+      .then((bucket) => {
+        if (!bucket) {
+          return res.status(404).json({ message: 'Bucket not found' });
+        }
+        res.json(bucket);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({ message: err.message });
+      });
+  });
+
+  Route.route('/createcontact').post((req, res, next) => {
+
+    // Create a new user with the generated userId
+    Contact.create(req.body)
+      .then((result) => {
+        res.status(201).json(result);
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ message: err.message });
+      });
+  });
+  
+module.exports = Route;

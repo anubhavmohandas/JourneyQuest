@@ -33,17 +33,22 @@ export class ContactUsComponent {
     };
 
     // Call the insertContact method from ApiService
-    this.apiService.insertContact(formData).subscribe(
-      (res) => {
-        console.log('Contact message sent successfully:', res);
-        alert('Your message has been sent successfully!');
-        this.clearForm();
-      },
-      (error) => {
-        console.log('Error sending contact message:', error);
-        alert('An error occurred while sending your message. Please try again.');
-      }
-    );
+    // this.apiService.insertContact(formData).subscribe(
+    //   (res) => {
+    //     console.log('Contact message sent successfully:', res);
+    //     alert('Your message has been sent successfully!');
+    //     this.clearForm();
+    //   },
+    //   (error) => {
+    //     console.log('Error sending contact message:', error);
+    //     alert('An error occurred while sending your message. Please try again.');
+    //   }
+    // );
+    console.log(formData)
+    this.apiService.insertContact(formData).subscribe({
+      complete:() => console.log('FORM submitted Successfully'),
+      error: (e) => { console.log('Problem'); },
+    })
   }
 
   clearForm() {

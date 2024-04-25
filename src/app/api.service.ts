@@ -26,8 +26,8 @@ export class ApiService {
     return this.http.post(url, data).pipe(
       map((response: any) => {
         if (response && response.user) {
+          this.currentUser = response.user.username;
           return response.user;  
-          this.currentUser = response.user;
         }
         throw new Error('Invalid response format');
       }),
@@ -53,7 +53,7 @@ setUser(username:string)
 
 // createBucket()
   insertBucket(data:any): Observable<any> {
-    let url = `${this.baseUri}/createBucket/${data}`;
+    let url = `${this.baseUri}/createBucket`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
   
