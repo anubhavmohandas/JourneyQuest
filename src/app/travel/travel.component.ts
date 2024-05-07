@@ -1,6 +1,7 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 export interface Trip {
   tripName: string;
@@ -61,6 +62,8 @@ export class TravelComponent {
     isCompleted: false
   };
 
+  constructor(private apiService: ApiService) {}
+
   trips: Trip[] = [];
   selectedTrip: Trip | null = null;
 
@@ -116,5 +119,9 @@ export class TravelComponent {
 
   deleteTrip(index: number) {
     this.trips.splice(index, 1);
+  }
+
+  insertTravelList(userId: string){
+    this.apiService.insertTravel(this.trips[this.trips.length-1])
   }
 }

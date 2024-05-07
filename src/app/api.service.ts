@@ -57,7 +57,7 @@ setUser(username:string)
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
   
-// createBucket()
+// createTravel()
   insertTravel(data:any): Observable<any> {
     let url = `${this.baseUri}/createtravel`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
