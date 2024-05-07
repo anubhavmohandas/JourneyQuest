@@ -1,0 +1,68 @@
+const express = require('express');
+const travelroute = express.Router();
+const Trip = require('../models/Trip');
+
+// Create a new trip
+travelroute.post('/trips', async (req, res) => {
+  try {
+    const trip = new Trip(req.body);
+    await trip.save();
+    res.status(201).json(trip);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Get all trips
+travelroute.get('/trips', async (req, res) => {
+  try {
+    const trips = await Trip.find();
+    res.json(trips);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Get a single trip
+travelroute.get('/trips/:id', async (req, res) => {
+  try {
+    const trip = await Trip.findById(req.params.id);
+    if (!trip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+    res.json(trip);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Update a trip
+travelroute.patch('/trips/:id', async (req, res) => {
+  try {
+    const trip = await Trip.findById(req.params.id);
+    if (!trip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+    Object.assign(trip, req.body);
+    await trip.save();
+    res.json(trip);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Delete a trip
+travelroute.delete('/trips/:id', async (req, res) => {
+  try {
+    const trip = await Trip.findById(req.params.id);
+    if (!trip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+    await trip.remove();
+    res.json({ message: 'Trip deleted' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+module.exports = travelroute;

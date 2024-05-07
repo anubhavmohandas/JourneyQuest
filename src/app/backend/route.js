@@ -4,6 +4,7 @@ const Route = express.Router();
 let User = require('./models/User'); 
 let Bucket = require('./models/BucketListItem');
 let Contact = require('./models/ContactMessage');
+let travel = require('./models/travel');
 
 
 // Create a new user
@@ -77,6 +78,21 @@ Route.route('/createBucket').post((req, res, next) => {
 
   // Create a new user with the generated userId
   Bucket.create(req.body)
+    .then((result) => {
+      res.status(201).json(result);
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({ message: err.message });
+    });
+});
+
+// Travel
+Route.route('/createtravel').post((req, res, next) => {
+
+  // Create a new user with the generated userId
+  travel.create(req.body)
     .then((result) => {
       res.status(201).json(result);
       console.log(result);
